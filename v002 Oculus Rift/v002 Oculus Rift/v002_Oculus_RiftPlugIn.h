@@ -15,6 +15,11 @@
 //@property (copy) NSString* outputBar;
 
 
+@property BOOL inputResetOrientation;
+@property BOOL inputEnableGravity;
+@property BOOL inputEnableYawCorrection;
+@property BOOL inputEnablePredictiveOrientation;
+
 @property (copy) NSString* outputDisplayDeviceName;
 @property (copy) NSString* outputProductName;
 @property (copy) NSString* outputManufacturer;

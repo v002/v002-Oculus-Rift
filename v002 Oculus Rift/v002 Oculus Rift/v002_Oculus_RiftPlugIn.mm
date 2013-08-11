@@ -58,6 +58,11 @@ using namespace OVR;
 
 @implementation v002_Oculus_RiftPlugIn
 
+@dynamic inputResetOrientation;
+@dynamic inputEnableGravity;
+@dynamic inputEnableYawCorrection;
+@dynamic inputEnablePredictiveOrientation;
+
 @dynamic outputDisplayDeviceName;
 @dynamic outputProductName;
 @dynamic outputManufacturer;
@@ -94,6 +99,22 @@ using namespace OVR;
 
 + (NSDictionary *)attributesForPropertyPortWithKey:(NSString *)key
 {
+	
+	if([key isEqualToString:@"inputResetOrientation"])
+		return @{QCPortAttributeNameKey: @"Reset Orientation"};
+	
+	if([key isEqualToString:@"inputEnableGravity"])
+		return @{QCPortAttributeNameKey: @"Enable Gravity",
+		   QCPortAttributeDefaultValueKey : @(TRUE)};
+
+	if([key isEqualToString:@"inputEnablePredictiveOrientation"])
+		return @{QCPortAttributeNameKey: @"Enable Predictive Orientation",
+		   QCPortAttributeDefaultValueKey : @(TRUE)};
+
+	if([key isEqualToString:@"inputEnableYawCorrection"])
+		return @{QCPortAttributeNameKey: @"Enable Yaw Correction",
+		   QCPortAttributeDefaultValueKey : @(TRUE)};
+	
 	if([key isEqualToString:@"outputDisplayDeviceName"])
 		return @{QCPortAttributeNameKey: @"Display Device Name"};
 
@@ -180,33 +201,38 @@ using namespace OVR;
 
 + (NSArray*) sortedPropertyPortKeys
 {
-	return @[@"outputDisplayDeviceName",
-		  @"outputProductName",
-		  @"outputManufacturer",
-		  @"outputVersion",
-		  @"outputSensorAccelerationX",
-		  @"outputSensorAccelerationY",
-		  @"outputSensorAccelerationZ",
-		  @"outputSensorOrientationX",
-		  @"outputSensorOrientationY",
-		  @"outputSensorOrientationZ",
-		  @"outputSensorOrientationW",
-		  @"outputScreenResolutionWidth",
-		  @"outputScreenResolutionHeight",
-		  @"outputScreenSizeWidth",
-		  @"outputScreenSizeHight",
-		  @"outputScreenCenter",
-		  @"outputEyeToScreenDistance",
-		  @"outputLensSeparationDistance",
-		  @"outputInterpupilaryDistance",
-		  @"outputDistortionK0",
-		  @"outputDistortionK1",
-		  @"outputDistortionK2",
-		  @"outputDistortionK3",
-		  @"outputChromaticAbberation0",
-		  @"outputChromaticAbberation1",
-		  @"outputChromaticAbberation2",
-		  @"outputChromaticAbberation3"];
+	return @[
+			@"inputResetOrientation",
+			@"inputEnableGravity",
+			@"inputEnablePredictiveOrientation",
+			@"inputEnableYawCorrection",
+			@"outputDisplayDeviceName",
+			@"outputProductName",
+			@"outputManufacturer",
+			@"outputVersion",
+			@"outputSensorAccelerationX",
+			@"outputSensorAccelerationY",
+			@"outputSensorAccelerationZ",
+			@"outputSensorOrientationX",
+			@"outputSensorOrientationY",
+			@"outputSensorOrientationZ",
+			@"outputSensorOrientationW",
+			@"outputScreenResolutionWidth",
+			@"outputScreenResolutionHeight",
+			@"outputScreenSizeWidth",
+			@"outputScreenSizeHight",
+			@"outputScreenCenter",
+			@"outputEyeToScreenDistance",
+			@"outputLensSeparationDistance",
+			@"outputInterpupilaryDistance",
+			@"outputDistortionK0",
+			@"outputDistortionK1",
+			@"outputDistortionK2",
+			@"outputDistortionK3",
+			@"outputChromaticAbberation0",
+			@"outputChromaticAbberation1",
+			@"outputChromaticAbberation2",
+			@"outputChromaticAbberation3"];
 }
 
 + (QCPlugInExecutionMode)executionMode
@@ -341,12 +367,34 @@ using namespace OVR;
 		self.didOutputStaticInformation = YES;
 	}
 	
+	if([self didValueForInputKeyChange:@"inputResetOrientation"])
+	{
+		if(self.inputResetOrientation)
+			FusionResult.Reset();
+	}
+
+	if([self didValueForInputKeyChange:@"inputEnableGravity"])
+	{
+		FusionResult.SetGravityEnabled((bool)self.inputEnableGravity);
+	}
+	
+	if([self didValueForInputKeyChange:@"inputEnableYawCorrection"])
+	{
+		FusionResult.SetYawCorrectionEnabled((bool)self.inputEnableYawCorrection);
+	}
+	
 	Vector3f tmpAcc = FusionResult.GetAcceleration();
 	self.outputSensorAccelerationX = tmpAcc.x;
 	self.outputSensorAccelerationY = tmpAcc.y;
 	self.outputSensorAccelerationZ = tmpAcc.z;
 	
-	Quatf quaternion = FusionResult.GetOrientation();
+	Quatf quaternion;
+	
+	if(self.inputEnablePredictiveOrientation)
+		quaternion = FusionResult.GetPredictedOrientation();
+	else
+		quaternion = FusionResult.GetOrientation();
+	
 	self.outputSensorOrientationX = quaternion.x;
 	self.outputSensorOrientationY = quaternion.y;
 	self.outputSensorOrientationZ = quaternion.z;
