@@ -23,6 +23,7 @@
 	<key>QCPlugInClasses</key>
 	<array>
 		<string>v002_Oculus_RiftPlugIn</string>
+		<string>v002_Oculus_Rift_Image_Correction</string>
 	</array>
 </dict>
 </plist>

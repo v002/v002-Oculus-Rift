@@ -41,6 +41,7 @@
 		1BC9EBFA17B73F5A004F7E4F /* OVR_ThreadsPthread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9EB8117B739D6004F7E4F /* OVR_ThreadsPthread.cpp */; };
 		1BC9EBFC17B73F5A004F7E4F /* OVR_Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9EB8317B739D6004F7E4F /* OVR_Timer.cpp */; };
 		1BC9EBFD17B73F5A004F7E4F /* OVR_UTF8Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9EB8617B739D6004F7E4F /* OVR_UTF8Util.cpp */; };
+		1BC9EC0017B760C4004F7E4F /* v002 Oculus Rift Image Correction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9EBFF17B760C4004F7E4F /* v002 Oculus Rift Image Correction.m */; };
 		1BD97F5A17B071690092FB9E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD97F5917B071690092FB9E /* Cocoa.framework */; };
 		1BD97F5C17B071690092FB9E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD97F5B17B071690092FB9E /* Quartz.framework */; };
 		1BD97F6617B071690092FB9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BD97F6417B071690092FB9E /* InfoPlist.strings */; };
@@ -128,6 +129,8 @@
 		1BC9EBAC17B739D6004F7E4F /* Util_Render_Stereo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util_Render_Stereo.cpp; sourceTree = "<group>"; };
 		1BC9EBAD17B739D6004F7E4F /* Util_Render_Stereo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util_Render_Stereo.h; sourceTree = "<group>"; };
 		1BC9EBD817B73A7A004F7E4F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		1BC9EBFE17B760C4004F7E4F /* v002 Oculus Rift Image Correction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "v002 Oculus Rift Image Correction.h"; sourceTree = "<group>"; };
+		1BC9EBFF17B760C4004F7E4F /* v002 Oculus Rift Image Correction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "v002 Oculus Rift Image Correction.m"; sourceTree = "<group>"; };
 		1BD97F5617B071690092FB9E /* v002 Oculus Rift.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "v002 Oculus Rift.plugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD97F5917B071690092FB9E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1BD97F5B17B071690092FB9E /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -316,6 +319,8 @@
 			children = (
 				1BD97F6717B071690092FB9E /* v002_Oculus_RiftPlugIn.h */,
 				1BD97F6817B071690092FB9E /* v002_Oculus_RiftPlugIn.mm */,
+				1BC9EBFE17B760C4004F7E4F /* v002 Oculus Rift Image Correction.h */,
+				1BC9EBFF17B760C4004F7E4F /* v002 Oculus Rift Image Correction.m */,
 				1BC9EB4C17B739D6004F7E4F /* LibOVR */,
 				1BD97F6217B071690092FB9E /* Supporting Files */,
 			);
@@ -445,6 +450,7 @@
 				1BC9EBFA17B73F5A004F7E4F /* OVR_ThreadsPthread.cpp in Sources */,
 				1BC9EBFC17B73F5A004F7E4F /* OVR_Timer.cpp in Sources */,
 				1BC9EBFD17B73F5A004F7E4F /* OVR_UTF8Util.cpp in Sources */,
+				1BC9EC0017B760C4004F7E4F /* v002 Oculus Rift Image Correction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
