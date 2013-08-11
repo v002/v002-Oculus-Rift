@@ -1,0 +1,6 @@
+//
+// Prefix header for all source files of the 'v002 Oculus Rift' target in the 'v002 Oculus Rift' project
+//
+
+#ifdef __OBJC__
+#endif

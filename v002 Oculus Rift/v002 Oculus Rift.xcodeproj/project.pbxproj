@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1BD97F5A17B071690092FB9E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD97F5917B071690092FB9E /* Cocoa.framework */; };
+		1BD97F5C17B071690092FB9E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD97F5B17B071690092FB9E /* Quartz.framework */; };
+		1BD97F6617B071690092FB9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BD97F6417B071690092FB9E /* InfoPlist.strings */; };
+		1BD97F6917B071690092FB9E /* v002_Oculus_RiftPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD97F6817B071690092FB9E /* v002_Oculus_RiftPlugIn.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1BD97F5617B071690092FB9E /* v002 Oculus Rift.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "v002 Oculus Rift.plugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD97F5917B071690092FB9E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1BD97F5B17B071690092FB9E /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		1BD97F5E17B071690092FB9E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1BD97F5F17B071690092FB9E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1BD97F6017B071690092FB9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1BD97F6317B071690092FB9E /* v002 Oculus Rift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "v002 Oculus Rift-Info.plist"; sourceTree = "<group>"; };
+		1BD97F6517B071690092FB9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1BD97F6717B071690092FB9E /* v002_Oculus_RiftPlugIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v002_Oculus_RiftPlugIn.h; sourceTree = "<group>"; };
+		1BD97F6817B071690092FB9E /* v002_Oculus_RiftPlugIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v002_Oculus_RiftPlugIn.m; sourceTree = "<group>"; };
+		1BD97F6A17B071690092FB9E /* v002 Oculus Rift-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "v002 Oculus Rift-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1BD97F5217B071690092FB9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD97F5A17B071690092FB9E /* Cocoa.framework in Frameworks */,
+				1BD97F5C17B071690092FB9E /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BD97F4C17B071690092FB9E = {
+			isa = PBXGroup;
+			children = (
+				1BD97F6117B071690092FB9E /* v002 Oculus Rift */,
+				1BD97F5817B071690092FB9E /* Frameworks */,
+				1BD97F5717B071690092FB9E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1BD97F5717B071690092FB9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1BD97F5617B071690092FB9E /* v002 Oculus Rift.plugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1BD97F5817B071690092FB9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BD97F5917B071690092FB9E /* Cocoa.framework */,
+				1BD97F5B17B071690092FB9E /* Quartz.framework */,
+				1BD97F5D17B071690092FB9E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BD97F5D17B071690092FB9E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BD97F5E17B071690092FB9E /* AppKit.framework */,
+				1BD97F5F17B071690092FB9E /* CoreData.framework */,
+				1BD97F6017B071690092FB9E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1BD97F6117B071690092FB9E /* v002 Oculus Rift */ = {
+			isa = PBXGroup;
+			children = (
+				1BD97F6717B071690092FB9E /* v002_Oculus_RiftPlugIn.h */,
+				1BD97F6817B071690092FB9E /* v002_Oculus_RiftPlugIn.m */,
+				1BD97F6217B071690092FB9E /* Supporting Files */,
+			);
+			path = "v002 Oculus Rift";
+			sourceTree = "<group>";
+		};
+		1BD97F6217B071690092FB9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BD97F6317B071690092FB9E /* v002 Oculus Rift-Info.plist */,
+				1BD97F6417B071690092FB9E /* InfoPlist.strings */,
+				1BD97F6A17B071690092FB9E /* v002 Oculus Rift-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1BD97F5517B071690092FB9E /* v002 Oculus Rift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD97F6D17B071690092FB9E /* Build configuration list for PBXNativeTarget "v002 Oculus Rift" */;
+			buildPhases = (
+				1BD97F5117B071690092FB9E /* Sources */,
+				1BD97F5217B071690092FB9E /* Frameworks */,
+				1BD97F5317B071690092FB9E /* Resources */,
+				1BD97F5417B071690092FB9E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "v002 Oculus Rift";
+			productName = "v002 Oculus Rift";
+			productReference = 1BD97F5617B071690092FB9E /* v002 Oculus Rift.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1BD97F4D17B071690092FB9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = v002;
+			};
+			buildConfigurationList = 1BD97F5017B071690092FB9E /* Build configuration list for PBXProject "v002 Oculus Rift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1BD97F4C17B071690092FB9E;
+			productRefGroup = 1BD97F5717B071690092FB9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BD97F5517B071690092FB9E /* v002 Oculus Rift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1BD97F5317B071690092FB9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD97F6617B071690092FB9E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BD97F5417B071690092FB9E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies the built plug-in to \"~/Library/Graphics/Quartz Composer Plug-Ins\" and overrides any previous version at that location\n\nmkdir -p \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins\"\nrm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/v002 Oculus Rift.plugin\"\ncp -rf \"$BUILT_PRODUCTS_DIR/v002 Oculus Rift.plugin\" \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BD97F5117B071690092FB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD97F6917B071690092FB9E /* v002_Oculus_RiftPlugIn.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1BD97F6417B071690092FB9E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BD97F6517B071690092FB9E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1BD97F6B17B071690092FB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1BD97F6C17B071690092FB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1BD97F6E17B071690092FB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "v002 Oculus Rift/v002 Oculus Rift-Prefix.pch";
+				INFOPLIST_FILE = "v002 Oculus Rift/v002 Oculus Rift-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Debug;
+		};
+		1BD97F6F17B071690092FB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "v002 Oculus Rift/v002 Oculus Rift-Prefix.pch";
+				INFOPLIST_FILE = "v002 Oculus Rift/v002 Oculus Rift-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1BD97F5017B071690092FB9E /* Build configuration list for PBXProject "v002 Oculus Rift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD97F6B17B071690092FB9E /* Debug */,
+				1BD97F6C17B071690092FB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BD97F6D17B071690092FB9E /* Build configuration list for PBXNativeTarget "v002 Oculus Rift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD97F6E17B071690092FB9E /* Debug */,
+				1BD97F6F17B071690092FB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BD97F4D17B071690092FB9E /* Project object */;
+}
