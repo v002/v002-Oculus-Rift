@@ -81,6 +81,11 @@ using namespace OVR;
 @dynamic outputDistortionK0;
 @dynamic outputDistortionK1;
 @dynamic outputDistortionK2;
+@dynamic outputDistortionK3;
+@dynamic outputChromaticAbberation0;
+@dynamic outputChromaticAbberation1;
+@dynamic outputChromaticAbberation2;
+@dynamic outputChromaticAbberation3;
 
 + (NSDictionary *)attributes
 {
@@ -89,7 +94,119 @@ using namespace OVR;
 
 + (NSDictionary *)attributesForPropertyPortWithKey:(NSString *)key
 {
+	if([key isEqualToString:@"outputDisplayDeviceName"])
+		return @{QCPortAttributeNameKey: @"Display Device Name"};
+
+	if([key isEqualToString:@"outputProductName"])
+		return @{QCPortAttributeNameKey: @"Product Name"};
+
+	if([key isEqualToString:@"outputManufacturer"])
+		return @{QCPortAttributeNameKey: @"Manufacturer"};
+
+	if([key isEqualToString:@"outputVersion"])
+		return @{QCPortAttributeNameKey: @"Version"};
+
+	if([key isEqualToString:@"outputSensorAccelerationX"])
+		return @{QCPortAttributeNameKey: @"Acceleration X"};
+
+	if([key isEqualToString:@"outputSensorAccelerationY"])
+		return @{QCPortAttributeNameKey: @"Acceleration Y"};
+	
+	if([key isEqualToString:@"outputSensorAccelerationZ"])
+		return @{QCPortAttributeNameKey: @"Acceleration Z"};
+
+	if([key isEqualToString:@"outputSensorOrientationX"])
+		return @{QCPortAttributeNameKey: @"Orientation X"};
+
+	if([key isEqualToString:@"outputSensorOrientationY"])
+		return @{QCPortAttributeNameKey: @"Orientation Y"};
+
+	if([key isEqualToString:@"outputSensorOrientationZ"])
+		return @{QCPortAttributeNameKey: @"Orientation Z"};
+
+	if([key isEqualToString:@"outputSensorOrientationW"])
+		return @{QCPortAttributeNameKey: @"Orientation W"};
+
+	if([key isEqualToString:@"outputScreenResolutionWidth"])
+		return @{QCPortAttributeNameKey: @"Screen Resolution Wide"};
+
+	if([key isEqualToString:@"outputScreenResolutionHeight"])
+		return @{QCPortAttributeNameKey: @"Screen Resolution Height"};
+
+	if([key isEqualToString:@"outputScreenSizeWidth"])
+		return @{QCPortAttributeNameKey: @"Screen Size Horizontal"};
+
+	if([key isEqualToString:@"outputScreenSizeHight"])
+		return @{QCPortAttributeNameKey: @"Screen Size Vertical"};
+
+	if([key isEqualToString:@"outputScreenCenter"])
+		return @{QCPortAttributeNameKey: @"Screen Center"};
+
+	if([key isEqualToString:@"outputEyeToScreenDistance"])
+		return @{QCPortAttributeNameKey: @"Eye To Screen Distance"};
+
+	if([key isEqualToString:@"outputLensSeparationDistance"])
+		return @{QCPortAttributeNameKey: @"Lens Separation"};
+
+	if([key isEqualToString:@"outputInterpupilaryDistance"])
+		return @{QCPortAttributeNameKey: @"Interpupilary Distance"};
+
+	if([key isEqualToString:@"outputDistortionK0"])
+		return @{QCPortAttributeNameKey: @"Distortion K 0"};
+
+	if([key isEqualToString:@"outputDistortionK1"])
+		return @{QCPortAttributeNameKey: @"Distortion K 1"};
+
+	if([key isEqualToString:@"outputDistortionK2"])
+		return @{QCPortAttributeNameKey: @"Distortion K 2"};
+
+	if([key isEqualToString:@"outputDistortionK3"])
+		return @{QCPortAttributeNameKey: @"Distortion K 3"};
+
+	if([key isEqualToString:@"outputChromaticAbberation0"])
+		return @{QCPortAttributeNameKey: @"Chromatic Abberation 0"};
+
+	if([key isEqualToString:@"outputChromaticAbberation1"])
+		return @{QCPortAttributeNameKey: @"Chromatic Abberation 1"};
+
+	if([key isEqualToString:@"outputChromaticAbberation2"])
+		return @{QCPortAttributeNameKey: @"Chromatic Abberation 2"};
+
+	if([key isEqualToString:@"outputChromaticAbberation3"])
+		return @{QCPortAttributeNameKey: @"Chromatic Abberation 3"};
+
 	return nil;
+}
+
++ (NSArray*) sortedPropertyPortKeys
+{
+	return @[@"outputDisplayDeviceName",
+		  @"outputProductName",
+		  @"outputManufacturer",
+		  @"outputVersion",
+		  @"outputSensorAccelerationX",
+		  @"outputSensorAccelerationY",
+		  @"outputSensorAccelerationZ",
+		  @"outputSensorOrientationX",
+		  @"outputSensorOrientationY",
+		  @"outputSensorOrientationZ",
+		  @"outputSensorOrientationW",
+		  @"outputScreenResolutionWidth",
+		  @"outputScreenResolutionHeight",
+		  @"outputScreenSizeWidth",
+		  @"outputScreenSizeHight",
+		  @"outputScreenCenter",
+		  @"outputEyeToScreenDistance",
+		  @"outputLensSeparationDistance",
+		  @"outputInterpupilaryDistance",
+		  @"outputDistortionK0",
+		  @"outputDistortionK1",
+		  @"outputDistortionK2",
+		  @"outputDistortionK3",
+		  @"outputChromaticAbberation0",
+		  @"outputChromaticAbberation1",
+		  @"outputChromaticAbberation2",
+		  @"outputChromaticAbberation3"];
 }
 
 + (QCPlugInExecutionMode)executionMode
@@ -171,13 +288,24 @@ using namespace OVR;
 	return self;
 }
 
+- (void) dealloc
+{
+	if(pSensor)
+		pSensor.Clear();
+	if(pManager)
+		pManager.Clear();
+	
+	System::Destroy();
+	
+	[super dealloc];
+}
+
 @end
 
 @implementation v002_Oculus_RiftPlugIn (Execution)
 
 - (BOOL)startExecution:(id <QCPlugInContext>)context
 {
-	
 	return YES;
 }
 
@@ -189,12 +317,10 @@ using namespace OVR;
 {
 	if(!self.didOutputStaticInformation)
 	{
-		
 		self.outputDisplayDeviceName = self.displayDeviceName;
 		self.outputProductName = self.productName;
 		self.outputManufacturer = self.manufacturer;
 		self.outputVersion = self.version;
-		
 		self.outputScreenResolutionWidth = self.resolutionWidth;
 		self.outputScreenResolutionHeight = self.resolutionHeight;
 		self.outputScreenSizeWidth = self.screenSizeWidth;
@@ -216,12 +342,11 @@ using namespace OVR;
 	}
 	
 	Vector3f tmpAcc = FusionResult.GetAcceleration();
-	Quatf quaternion = FusionResult.GetOrientation();
-
 	self.outputSensorAccelerationX = tmpAcc.x;
 	self.outputSensorAccelerationY = tmpAcc.y;
 	self.outputSensorAccelerationZ = tmpAcc.z;
 	
+	Quatf quaternion = FusionResult.GetOrientation();
 	self.outputSensorOrientationX = quaternion.x;
 	self.outputSensorOrientationY = quaternion.y;
 	self.outputSensorOrientationZ = quaternion.z;
