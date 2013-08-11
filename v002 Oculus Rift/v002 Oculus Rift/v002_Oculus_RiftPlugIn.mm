@@ -74,7 +74,6 @@ using namespace OVR;
 @dynamic outputSensorOrientationX;
 @dynamic outputSensorOrientationY;
 @dynamic outputSensorOrientationZ;
-@dynamic outputSensorOrientationW;
 @dynamic outputScreenResolutionWidth;
 @dynamic outputScreenResolutionHeight;
 @dynamic outputScreenSizeWidth;
@@ -137,16 +136,16 @@ using namespace OVR;
 		return @{QCPortAttributeNameKey: @"Acceleration Z"};
 
 	if([key isEqualToString:@"outputSensorOrientationX"])
-		return @{QCPortAttributeNameKey: @"Orientation X"};
+		return @{QCPortAttributeNameKey: @"Angle X"};
 
 	if([key isEqualToString:@"outputSensorOrientationY"])
-		return @{QCPortAttributeNameKey: @"Orientation Y"};
+		return @{QCPortAttributeNameKey: @"Angle Y"};
 
 	if([key isEqualToString:@"outputSensorOrientationZ"])
-		return @{QCPortAttributeNameKey: @"Orientation Z"};
+		return @{QCPortAttributeNameKey: @"Angle Z"};
 
-	if([key isEqualToString:@"outputSensorOrientationW"])
-		return @{QCPortAttributeNameKey: @"Orientation W"};
+//	if([key isEqualToString:@"outputSensorOrientationW"])
+//		return @{QCPortAttributeNameKey: @"Orientation W"};
 
 	if([key isEqualToString:@"outputScreenResolutionWidth"])
 		return @{QCPortAttributeNameKey: @"Screen Resolution Wide"};
@@ -395,10 +394,14 @@ using namespace OVR;
 	else
 		quaternion = FusionResult.GetOrientation();
 	
-	self.outputSensorOrientationX = quaternion.x;
-	self.outputSensorOrientationY = quaternion.y;
-	self.outputSensorOrientationZ = quaternion.z;
-	self.outputSensorOrientationW = quaternion.w;
+	float x;
+	float y;
+	float z;
+	quaternion.GetEulerAngles<OVR::Axis::Axis_X, OVR::Axis::Axis_Y, OVR::Axis::Axis_Z>(&x,&y, &z);
+	
+	self.outputSensorOrientationX = RadToDegree(-x);
+	self.outputSensorOrientationY = RadToDegree(-y);
+	self.outputSensorOrientationZ = RadToDegree(-z);
 	
 	return YES;
 }

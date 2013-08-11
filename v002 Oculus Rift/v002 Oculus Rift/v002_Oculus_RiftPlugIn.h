@@ -32,7 +32,6 @@
 @property double outputSensorOrientationX;
 @property double outputSensorOrientationY;
 @property double outputSensorOrientationZ;
-@property double outputSensorOrientationW;
 
 @property NSUInteger outputScreenResolutionWidth;
 @property NSUInteger outputScreenResolutionHeight;
