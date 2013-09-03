@@ -11,52 +11,42 @@
 
 #import "v002_Oculus_RiftPlugIn.h"
 
-#import "OVR.h"
-using namespace OVR;
 
 #define	kQCPlugIn_Name				@"v002 Oculus Rift"
 #define	kQCPlugIn_Description		@"v002 Oculus Rift description"
 
-@interface v002_Oculus_RiftPlugIn ()
-{
-	Ptr<DeviceManager>	pManager;
-	Ptr<HMDDevice>		pHMD;
-	Ptr<SensorDevice>	pSensor;
-	SensorFusion		FusionResult;
-	HMDInfo				Info;
-}
-
-@property (atomic, readwrite, assign) BOOL didOutputStaticInformation;
-
-@property (atomic, readwrite, copy) NSString* displayDeviceName;
-@property (atomic, readwrite, copy) NSString* productName;
-@property (atomic, readwrite, copy) NSString* manufacturer;
-@property (atomic, readwrite, assign) NSUInteger version;
-
-@property (atomic, readwrite, assign) NSUInteger resolutionWidth;
-@property (atomic, readwrite, assign) NSUInteger resolutionHeight;
-@property (atomic, readwrite, assign) double screenSizeWidth;
-@property (atomic, readwrite, assign) double screenSizeHeight;
-@property (atomic, readwrite, assign) double screenSizeCenter;
-@property (atomic, readwrite, assign) double eyeToScreenDistance;
-@property (atomic, readwrite, assign) double lensSeparationDistance;
-@property (atomic, readwrite, assign) double interpupilaryDistance;
-
-@property (atomic, readwrite, assign) double distortionK0;
-@property (atomic, readwrite, assign) double distortionK1;
-@property (atomic, readwrite, assign) double distortionK2;
-@property (atomic, readwrite, assign) double distortionK3;
-
-@property (atomic, readwrite, assign) double chromaticAbberation0;
-@property (atomic, readwrite, assign) double chromaticAbberation1;
-@property (atomic, readwrite, assign) double chromaticAbberation2;
-@property (atomic, readwrite, assign) double chromaticAbberation3;
-
-@property (atomic, readwrite, assign) BOOL InfoLoaded;
-
-@end
 
 @implementation v002_Oculus_RiftPlugIn
+
+@synthesize didOutputStaticInformation;
+
+@synthesize displayDeviceName;
+@synthesize productName;
+@synthesize manufacturer;
+@synthesize version;
+
+@synthesize resolutionWidth;
+@synthesize resolutionHeight;
+@synthesize screenSizeWidth;
+@synthesize screenSizeHeight;
+@synthesize screenSizeCenter;
+@synthesize eyeToScreenDistance;
+@synthesize lensSeparationDistance;
+@synthesize interpupilaryDistance;
+
+@synthesize distortionK0;
+@synthesize distortionK1;
+@synthesize distortionK2;
+@synthesize distortionK3;
+
+@synthesize chromaticAbberation0;
+@synthesize chromaticAbberation1;
+@synthesize chromaticAbberation2;
+@synthesize chromaticAbberation3;
+
+@synthesize InfoLoaded;
+
+#pragma mark - Ports
 
 @dynamic inputResetOrientation;
 @dynamic inputEnableGravity;
