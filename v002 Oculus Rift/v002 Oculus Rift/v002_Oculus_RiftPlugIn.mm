@@ -394,10 +394,10 @@
 	
 	if(self.inputUseQuaternion)
 	{
-		self.outputSensorOrientationX = RadToDegree(-quaternion.x);
-		self.outputSensorOrientationY = RadToDegree(-quaternion.y);
-		self.outputSensorOrientationZ = RadToDegree(-quaternion.z);
-		self.outputSensorOrientationZ = RadToDegree(-quaternion.w);
+		self.outputSensorOrientationX = quaternion.x;
+		self.outputSensorOrientationY = quaternion.y;
+		self.outputSensorOrientationZ = quaternion.z;
+		self.outputSensorOrientationZ = quaternion.w;
 	}
 	else
 	{
