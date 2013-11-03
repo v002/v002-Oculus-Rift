@@ -81,6 +81,7 @@ using namespace OVR;
 @property BOOL inputEnableGravity;
 @property BOOL inputEnableYawCorrection;
 @property BOOL inputEnablePredictiveOrientation;
+@property BOOL inputUseQuaternion;
 
 @property (copy) NSString* outputDisplayDeviceName;
 @property (copy) NSString* outputProductName;
@@ -94,6 +95,7 @@ using namespace OVR;
 @property double outputSensorOrientationX;
 @property double outputSensorOrientationY;
 @property double outputSensorOrientationZ;
+@property double outputSensorOrientationW;
 
 @property NSUInteger outputScreenResolutionWidth;
 @property NSUInteger outputScreenResolutionHeight;

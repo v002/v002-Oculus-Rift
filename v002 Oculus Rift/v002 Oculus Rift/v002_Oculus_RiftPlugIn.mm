@@ -52,6 +52,7 @@
 @dynamic inputEnableGravity;
 @dynamic inputEnableYawCorrection;
 @dynamic inputEnablePredictiveOrientation;
+@dynamic inputUseQuaternion;
 
 @dynamic outputDisplayDeviceName;
 @dynamic outputProductName;
@@ -64,6 +65,7 @@
 @dynamic outputSensorOrientationX;
 @dynamic outputSensorOrientationY;
 @dynamic outputSensorOrientationZ;
+@dynamic outputSensorOrientationW;
 @dynamic outputScreenResolutionWidth;
 @dynamic outputScreenResolutionHeight;
 @dynamic outputScreenSizeWidth;
@@ -104,6 +106,11 @@
 		return @{QCPortAttributeNameKey: @"Enable Yaw Correction",
 		   QCPortAttributeDefaultValueKey : @(TRUE)};
 	
+	
+	if([key isEqualToString:@"inputUseQuaternion"])
+		return @{QCPortAttributeNameKey: @"Use Quaternion Angles",
+				 QCPortAttributeDefaultValueKey : @(TRUE)};
+	
 	if([key isEqualToString:@"outputDisplayDeviceName"])
 		return @{QCPortAttributeNameKey: @"Display Device Name"};
 
@@ -126,16 +133,16 @@
 		return @{QCPortAttributeNameKey: @"Acceleration Z"};
 
 	if([key isEqualToString:@"outputSensorOrientationX"])
-		return @{QCPortAttributeNameKey: @"Angle X"};
+		return @{QCPortAttributeNameKey: @"Orientation X"};
 
 	if([key isEqualToString:@"outputSensorOrientationY"])
-		return @{QCPortAttributeNameKey: @"Angle Y"};
+		return @{QCPortAttributeNameKey: @"Orientation Y"};
 
 	if([key isEqualToString:@"outputSensorOrientationZ"])
-		return @{QCPortAttributeNameKey: @"Angle Z"};
+		return @{QCPortAttributeNameKey: @"Orientation Z"};
 
-//	if([key isEqualToString:@"outputSensorOrientationW"])
-//		return @{QCPortAttributeNameKey: @"Orientation W"};
+	if([key isEqualToString:@"outputSensorOrientationW"])
+		return @{QCPortAttributeNameKey: @"Orientation W"};
 
 	if([key isEqualToString:@"outputScreenResolutionWidth"])
 		return @{QCPortAttributeNameKey: @"Screen Resolution Wide"};
@@ -195,6 +202,7 @@
 			@"inputEnableGravity",
 			@"inputEnablePredictiveOrientation",
 			@"inputEnableYawCorrection",
+			@"inputUseQuaternion",
 			@"outputDisplayDeviceName",
 			@"outputProductName",
 			@"outputManufacturer",
@@ -384,15 +392,26 @@
 	else
 		quaternion = FusionResult.GetOrientation();
 	
-	float x;
-	float y;
-	float z;
-	quaternion.GetEulerAngles<OVR::Axis::Axis_X, OVR::Axis::Axis_Y, OVR::Axis::Axis_Z>(&x,&y, &z);
-	
-	self.outputSensorOrientationX = RadToDegree(-x);
-	self.outputSensorOrientationY = RadToDegree(-y);
-	self.outputSensorOrientationZ = RadToDegree(-z);
-	
+	if(self.inputUseQuaternion)
+	{
+		self.outputSensorOrientationX = RadToDegree(-quaternion.x);
+		self.outputSensorOrientationY = RadToDegree(-quaternion.y);
+		self.outputSensorOrientationZ = RadToDegree(-quaternion.z);
+		self.outputSensorOrientationZ = RadToDegree(-quaternion.w);
+	}
+	else
+	{
+		float x;
+		float y;
+		float z;
+		quaternion.GetEulerAngles<OVR::Axis::Axis_X, OVR::Axis::Axis_Y, OVR::Axis::Axis_Z>(&x,&y, &z);
+		
+		self.outputSensorOrientationX = RadToDegree(-x);
+		self.outputSensorOrientationY = RadToDegree(-y);
+		self.outputSensorOrientationZ = RadToDegree(-z);
+		self.outputSensorOrientationW = 0;
+	}
+		
 	return YES;
 }
 
