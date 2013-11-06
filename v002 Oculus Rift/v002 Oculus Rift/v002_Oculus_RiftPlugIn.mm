@@ -397,7 +397,7 @@
 		self.outputSensorOrientationX = quaternion.x;
 		self.outputSensorOrientationY = quaternion.y;
 		self.outputSensorOrientationZ = quaternion.z;
-		self.outputSensorOrientationZ = quaternion.w;
+		self.outputSensorOrientationW = quaternion.w;
 	}
 	else
 	{
