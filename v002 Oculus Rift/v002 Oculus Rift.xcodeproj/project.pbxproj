@@ -599,10 +599,6 @@
 				GCC_PREFIX_HEADER = "v002 Oculus Rift/v002 Oculus Rift-Prefix.pch";
 				INFOPLIST_FILE = "v002 Oculus Rift/v002 Oculus Rift-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
-				LIBRARY_SEARCH_PATHS = (
-					"/Users/joerick/v002-Oculus-Rift/v002\\ Oculus\\ Rift/v002\\ Oculus\\ Rift/LibOVR/Lib/MacOS/Debug",
-					"/Users/joerick/v002-Oculus-Rift/v002\\ Oculus\\ Rift/v002\\ Oculus\\ Rift/LibOVR/Lib/MacOS/Release",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = plugin;
@@ -619,10 +615,6 @@
 				GCC_PREFIX_HEADER = "v002 Oculus Rift/v002 Oculus Rift-Prefix.pch";
 				INFOPLIST_FILE = "v002 Oculus Rift/v002 Oculus Rift-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
-				LIBRARY_SEARCH_PATHS = (
-					"/Users/joerick/v002-Oculus-Rift/v002\\ Oculus\\ Rift/v002\\ Oculus\\ Rift/LibOVR/Lib/MacOS/Debug",
-					"/Users/joerick/v002-Oculus-Rift/v002\\ Oculus\\ Rift/v002\\ Oculus\\ Rift/LibOVR/Lib/MacOS/Release",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = plugin;
