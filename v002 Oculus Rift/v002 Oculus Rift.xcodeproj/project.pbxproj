@@ -429,7 +429,7 @@
 		1BD97F4D17B071690092FB9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = v002;
 			};
 			buildConfigurationList = 1BD97F5017B071690092FB9E /* Build configuration list for PBXProject "v002 Oculus Rift" */;
@@ -594,13 +594,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "v002 Oculus Rift/v002 Oculus Rift-Prefix.pch";
 				INFOPLIST_FILE = "v002 Oculus Rift/v002 Oculus Rift-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Debug;
@@ -610,13 +608,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "v002 Oculus Rift/v002 Oculus Rift-Prefix.pch";
 				INFOPLIST_FILE = "v002 Oculus Rift/v002 Oculus Rift-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Release;
