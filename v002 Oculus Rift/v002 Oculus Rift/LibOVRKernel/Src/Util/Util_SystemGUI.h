@@ -1,10 +1,9 @@
 /************************************************************************************
 
-Filename    :   OVR.h
-Content     :   The main public interface to Oculus for C++ Developers.
-                Includes C API and helper classes.
-
-Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
+Filename    :   Util_SystemGUI.h
+Content     :   OS GUI access, usually for diagnostics.
+Created     :   October 20, 2014
+Copyright   :   Copyright 2014 Oculus VR, LLC All Rights reserved.
 
 Licensed under the Oculus VR Rift SDK License Version 3.2 (the "License"); 
 you may not use the Oculus VR Rift SDK except in compliance with the License, 
@@ -23,18 +22,19 @@ limitations under the License.
 
 *************************************************************************************/
 
-#ifndef OVR_h
-#define OVR_h
+#ifndef OVR_Util_GUI_h
+#define OVR_Util_GUI_h
 
-#include "OVR_Version.h"
-#include "OVR_CAPI.h"
 
-/* The following includes are deprecated from this location and will be removed from a future version of this library. */
-#include "Kernel/OVR_Types.h"
-#include "Kernel/OVR_RefCount.h"
-#include "Kernel/OVR_Std.h"
-#include "Kernel/OVR_Alg.h"
-#include "Extras/OVR_Math.h"
+namespace OVR { namespace Util {
+
+    // Displays a modal message box on the default GUI display (not on a VR device). 
+    // The message box interface (e.g. OK button) is not localized.
+    bool DisplayMessageBox(const char* pTitle, const char* pText);
+
+    bool DisplayMessageBoxF(const char* pTitle, const char* pFormat, ...);
+
+} } // namespace OVR::Util
+
 
 #endif
-

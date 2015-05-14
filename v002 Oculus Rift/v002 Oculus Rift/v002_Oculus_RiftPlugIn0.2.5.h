@@ -2,45 +2,45 @@
 //  v002_Oculus_RiftPlugIn.h
 //  v002 Oculus Rift
 //
-//  Created by vade on 5/13/15.
-//  Copyright (c) 2015 v002. All rights reserved.
+//  Created by vade on 8/5/13.
+//  Copyright (c) 2013 v002. All rights reserved.
 //
 
 #import <Quartz/Quartz.h>
 
-#include "OVR_Kernel.h"
+#import "OVR.h"
 using namespace OVR;
-
-#include "OVR_CAPI.h"
-
 
 @interface v002_Oculus_RiftPlugIn : QCPlugIn
 {
-    ovrHmd hmd;
-
-    
-    BOOL didOutputStaticInformation;
-    NSString* displayDeviceName;
-    NSString* productName;
-    NSString* manufacturer;
-    NSUInteger version;
-    NSUInteger resolutionWidth;
-    NSUInteger resolutionHeight;
-    double screenSizeWidth;
-    double screenSizeHeight;
-    double screenSizeCenter;
-    double eyeToScreenDistance;
-    double lensSeparationDistance;
-    double interpupilaryDistance;
-    double distortionK0;
-    double distortionK1;
-    double distortionK2;
-    double distortionK3;
-    double chromaticAbberation0;
-    double chromaticAbberation1;
-    double chromaticAbberation2;
-    double chromaticAbberation3;
-    BOOL InfoLoaded;
+	Ptr<DeviceManager>	pManager;
+	Ptr<HMDDevice>		pHMD;
+	Ptr<SensorDevice>	pSensor;
+	SensorFusion		FusionResult;
+	HMDInfo				Info;
+	
+	BOOL didOutputStaticInformation;
+	NSString* displayDeviceName;
+	NSString* productName;
+	NSString* manufacturer;
+	NSUInteger version;
+	NSUInteger resolutionWidth;
+	NSUInteger resolutionHeight;
+	double screenSizeWidth;
+	double screenSizeHeight;
+	double screenSizeCenter;
+	double eyeToScreenDistance;
+	double lensSeparationDistance;
+	double interpupilaryDistance;
+	double distortionK0;
+	double distortionK1;
+	double distortionK2;
+	double distortionK3;
+	double chromaticAbberation0;
+	double chromaticAbberation1;
+	double chromaticAbberation2;
+	double chromaticAbberation3;
+	BOOL InfoLoaded;
 }
 
 @property (atomic, readwrite, assign) BOOL didOutputStaticInformation;
@@ -119,4 +119,3 @@ using namespace OVR;
 
 
 @end
-

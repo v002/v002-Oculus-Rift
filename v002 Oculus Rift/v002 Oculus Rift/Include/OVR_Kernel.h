@@ -1,8 +1,8 @@
 /************************************************************************************
 
-Filename    :   OVR.h
-Content     :   The main public interface to Oculus for C++ Developers.
-                Includes C API and helper classes.
+Filename    :   OVRKernel.h
+Content     :   This contains references to all OVR Kernel headers in Src folder.
+                Should be generated automatically based on PublicHeader tags.
 
 Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
 
@@ -23,17 +23,21 @@ limitations under the License.
 
 *************************************************************************************/
 
-#ifndef OVR_h
-#define OVR_h
+/* This header file is deprecated and will be removed from a future version of this library */
 
-#include "OVR_Version.h"
-#include "OVR_CAPI.h"
+#ifndef OVR_Kernel_h
+#define OVR_Kernel_h
 
-/* The following includes are deprecated from this location and will be removed from a future version of this library. */
 #include "Kernel/OVR_Types.h"
+#include "Kernel/OVR_Allocator.h"
 #include "Kernel/OVR_RefCount.h"
-#include "Kernel/OVR_Std.h"
-#include "Kernel/OVR_Alg.h"
+#include "Kernel/OVR_Log.h"
+#include "Kernel/OVR_System.h"
+#include "Kernel/OVR_Nullptr.h"
+#include "Kernel/OVR_String.h"
+#include "Kernel/OVR_Array.h"
+#include "Kernel/OVR_Timer.h"
+#include "Kernel/OVR_SysFile.h"
 #include "Extras/OVR_Math.h"
 
 #endif

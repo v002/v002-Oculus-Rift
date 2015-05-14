@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A51D974F-1C11-4049-914C-5ECB19F0B03B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>v002 Oculus Rift</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>345DFBFCD1F8505326060E34034F2A512B4AC939</key>
+		<string>https://github.com/v002/v002-Oculus-Rift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>v002 Oculus Rift/v002 Oculus Rift.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>345DFBFCD1F8505326060E34034F2A512B4AC939</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/v002/v002-Oculus-Rift.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>345DFBFCD1F8505326060E34034F2A512B4AC939</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>345DFBFCD1F8505326060E34034F2A512B4AC939</string>
+			<key>IDESourceControlWCCName</key>
+			<string>v002-Oculus-Rift</string>
+		</dict>
+	</array>
+</dict>
+</plist>

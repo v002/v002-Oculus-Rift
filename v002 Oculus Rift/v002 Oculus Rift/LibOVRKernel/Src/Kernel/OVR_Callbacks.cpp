@@ -1,10 +1,12 @@
 /************************************************************************************
 
-Filename    :   OVR.h
-Content     :   The main public interface to Oculus for C++ Developers.
-                Includes C API and helper classes.
+PublicHeader:   Kernel
+Filename    :   OVR_Callbacks.cpp
+Content     :   Callback library
+Created     :   Nov 17, 2014
+Author      :   Chris Taylor
 
-Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright 2014 Oculus VR, LLC All Rights reserved.
 
 Licensed under the Oculus VR Rift SDK License Version 3.2 (the "License"); 
 you may not use the Oculus VR Rift SDK except in compliance with the License, 
@@ -21,20 +23,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-*************************************************************************************/
+************************************************************************************/
 
-#ifndef OVR_h
-#define OVR_h
+#include "OVR_Callbacks.h"
 
-#include "OVR_Version.h"
-#include "OVR_CAPI.h"
+namespace OVR {
 
-/* The following includes are deprecated from this location and will be removed from a future version of this library. */
-#include "Kernel/OVR_Types.h"
-#include "Kernel/OVR_RefCount.h"
-#include "Kernel/OVR_Std.h"
-#include "Kernel/OVR_Alg.h"
-#include "Extras/OVR_Math.h"
 
-#endif
+// Global emitter lock
+//
+// Add/remove operations on callbacks happen infrequently, and are already fairly
+// serialized in order of construction by design.  Therefore contention for this
+// lock between call()/shutdown() is the main concern and is also rare.
+Lock CallbackEmitterBase::EmitterLock;
 
+
+} // namespace OVR

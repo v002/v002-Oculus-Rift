@@ -1,10 +1,12 @@
 /************************************************************************************
 
-Filename    :   OVR.h
-Content     :   The main public interface to Oculus for C++ Developers.
-                Includes C API and helper classes.
+PublicHeader:   OVR
+Filename    :   OVR_CRC32.h
+Content     :   CRC-32 with polynomial used for sensor devices
+Created     :   June 20, 2014
+Author      :   Chris Taylor
 
-Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright 2014 Oculus VR, LLC All Rights reserved.
 
 Licensed under the Oculus VR Rift SDK License Version 3.2 (the "License"); 
 you may not use the Oculus VR Rift SDK except in compliance with the License, 
@@ -21,20 +23,23 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-*************************************************************************************/
+************************************************************************************/
 
-#ifndef OVR_h
-#define OVR_h
+#ifndef OVR_CRC32_h
+#define OVR_CRC32_h
 
-#include "OVR_Version.h"
-#include "OVR_CAPI.h"
+#include "OVR_Types.h"
 
-/* The following includes are deprecated from this location and will be removed from a future version of this library. */
-#include "Kernel/OVR_Types.h"
-#include "Kernel/OVR_RefCount.h"
-#include "Kernel/OVR_Std.h"
-#include "Kernel/OVR_Alg.h"
-#include "Extras/OVR_Math.h"
+namespace OVR {
+
+
+//-----------------------------------------------------------------------------------
+// ***** CRC-32
+
+// Polynomial used and algorithm details are proprietary to our sensor board
+uint32_t CRC32_Calculate(const void* data, int bytes, uint32_t prevCRC = 0);
+
+
+} // namespace OVR
 
 #endif
-
