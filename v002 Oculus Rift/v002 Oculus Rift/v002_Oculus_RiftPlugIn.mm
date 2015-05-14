@@ -244,7 +244,9 @@
 
 + (void) initialize
 {
-    ovr_Initialize();
+    ovrInitParams params = {0, 0, nullptr, 0};
+
+    ovr_Initialize(&params);
 }
 
 - (id)init
@@ -410,7 +412,7 @@
             Quatf quat = Quatf(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
             
             //quat.GetYawPitchRoll(&x, &y, &z);
-            quat.GetEulerAngles<Axis_X, Axis_Y, Axis_Z, Rotate_CCW, Handed_R>(&x, &y, &z);
+            quat.GetEulerAngles<Axis_Z, Axis_Y, Axis_X, Rotate_CCW, Handed_R>(&z, &y, &x);
             
             self.outputSensorOrientationX = RadToDegree(-x);
             self.outputSensorOrientationY = RadToDegree(-y);
